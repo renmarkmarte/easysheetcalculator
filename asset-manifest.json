@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/easysheetcalculator/static/css/main.5f361e03.chunk.css",
+    "main.js": "/easysheetcalculator/static/js/main.3df5550c.chunk.js",
+    "main.js.map": "/easysheetcalculator/static/js/main.3df5550c.chunk.js.map",
+    "runtime-main.js": "/easysheetcalculator/static/js/runtime-main.5f06cec2.js",
+    "runtime-main.js.map": "/easysheetcalculator/static/js/runtime-main.5f06cec2.js.map",
+    "static/js/2.c4833aa1.chunk.js": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js",
+    "static/js/2.c4833aa1.chunk.js.map": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js.map",
+    "index.html": "/easysheetcalculator/index.html",
+    "precache-manifest.f3044d92925322f9a1a0bccbd6287b41.js": "/easysheetcalculator/precache-manifest.f3044d92925322f9a1a0bccbd6287b41.js",
+    "service-worker.js": "/easysheetcalculator/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/easysheetcalculator/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.c4833aa1.chunk.js.LICENSE.txt": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/easysheetcalculator/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f06cec2.js",
+    "static/js/2.c4833aa1.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.3df5550c.chunk.js"
+  ]
+}
