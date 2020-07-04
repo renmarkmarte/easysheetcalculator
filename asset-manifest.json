@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/easysheetcalculator/static/css/main.5f361e03.chunk.css",
-    "main.js": "/easysheetcalculator/static/js/main.3df5550c.chunk.js",
-    "main.js.map": "/easysheetcalculator/static/js/main.3df5550c.chunk.js.map",
+    "main.css": "/easysheetcalculator/static/css/main.0774b07d.chunk.css",
+    "main.js": "/easysheetcalculator/static/js/main.655783c0.chunk.js",
+    "main.js.map": "/easysheetcalculator/static/js/main.655783c0.chunk.js.map",
     "runtime-main.js": "/easysheetcalculator/static/js/runtime-main.5f06cec2.js",
     "runtime-main.js.map": "/easysheetcalculator/static/js/runtime-main.5f06cec2.js.map",
-    "static/js/2.c4833aa1.chunk.js": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js",
-    "static/js/2.c4833aa1.chunk.js.map": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/easysheetcalculator/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.92a571c2.chunk.js": "/easysheetcalculator/static/js/2.92a571c2.chunk.js",
+    "static/js/2.92a571c2.chunk.js.map": "/easysheetcalculator/static/js/2.92a571c2.chunk.js.map",
     "index.html": "/easysheetcalculator/index.html",
-    "precache-manifest.f3044d92925322f9a1a0bccbd6287b41.js": "/easysheetcalculator/precache-manifest.f3044d92925322f9a1a0bccbd6287b41.js",
+    "precache-manifest.48b36b5b9ce191032b303b8c14612c1a.js": "/easysheetcalculator/precache-manifest.48b36b5b9ce191032b303b8c14612c1a.js",
     "service-worker.js": "/easysheetcalculator/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/easysheetcalculator/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.c4833aa1.chunk.js.LICENSE.txt": "/easysheetcalculator/static/js/2.c4833aa1.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/easysheetcalculator/static/media/logo.5d5d9eef.svg"
+    "static/css/2.af3c1da9.chunk.css.map": "/easysheetcalculator/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.0774b07d.chunk.css.map": "/easysheetcalculator/static/css/main.0774b07d.chunk.css.map",
+    "static/js/2.92a571c2.chunk.js.LICENSE.txt": "/easysheetcalculator/static/js/2.92a571c2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5f06cec2.js",
-    "static/js/2.c4833aa1.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.3df5550c.chunk.js"
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.92a571c2.chunk.js",
+    "static/css/main.0774b07d.chunk.css",
+    "static/js/main.655783c0.chunk.js"
   ]
 }
