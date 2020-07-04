@@ -1,0 +1,31 @@
+.artwork-form-row {
+	background-color: #EEE;
+	padding: 30px;
+}
+
+.artwork-form-row label {
+	font-family: 'Roboto Mono', sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	display: inline;
+}
+
+.artwork-form-row input {
+	font-family: 'Roboto Mono', sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	margin: 5px 0px;
+}
+
+.artwork-form-row select {
+	font-family: 'Roboto Mono', sans-serif;
+	font-size: 15px;
+	font-weight: 1000;
+	margin-top: 10px;
+}
+
+.sheet-col {
+	text-align: center;
+	margin-top: 50px;
+}
+
