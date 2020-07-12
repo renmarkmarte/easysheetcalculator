@@ -152,58 +152,73 @@ class Calculator extends React.Component {
     var nine_hundred_sheets = this.calculateNumofSheets(900, 2400);
     var twentyfour_hundred_sheets = this.calculateNumofSheets(1200, 2400);
 
-   var background_color = "white";
+   var sheet_info_class = "sheet-info-container";
     if(eighteen_hundred_waste === "N/A") {
-      background_color = "red";
+      sheet_info_class = "sheet-info-error";
     }
 
 
     return (
       <div class="container-calculator">
-        <Row className="artwork-form-row">
-          <Col xs={12} className="artwork-col">
-            <form onSubmit={this.handleSubmit}>
-              <h2>Artwork Info:</h2>  
-              <label>Width: </label> 
-              <input type="number" name="width" value={this.state.width} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
-              <br/>
-              <label>Height: </label>
-              <input type="number" name="height" value={this.state.height} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
-              <br/>
-              <label>Quantity: </label>
-              <input type="number" name="quantity" value={this.state.quantity} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
-              <br/>
-              <label>Flute Direction: </label>
-              <select value={this.state.flute_direction} name="flute_direction" onChange={e => this.handleChange(e.target.name, e.target.value)}>
-                <option value="Not Important">Not Important</option>
-                <option value="Horizontal">Horizontal</option>
-                <option value="Vertical">Vertical</option>
-              </select>
-            </form>
-          </Col>
-        </Row>
+        <div class="header-container">
+          <Row className="header">
+            <Col xs={12}>
+              <h1>EasySheet Calculator</h1>
+            </Col>
+          </Row>
+          <Row className="artwork-form-row text-center">
+            <Col xs={12} className="artwork-form-col">
+              <form class="form-inline justify-content-center align-items-center" onSubmit={this.handleSubmit}> 
+                <div class="form-group">
+                  <label>Width: </label> 
+                  <input type="number" name="width" value={this.state.width} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
+                </div>
+                <div class="form-group">
+                  <label>Height: </label>
+                  <input type="number" name="height" value={this.state.height} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
+                </div>
+                <div class="form-group">
+                  <label>Quantity: </label>
+                  <input type="number" name="quantity" value={this.state.quantity} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
+                </div>
+                <div class="form-group">
+                  <label>Flute Direction: </label>
+                  <select value={this.state.flute_direction} name="flute_direction" onChange={e => this.handleChange(e.target.name, e.target.value)}>
+                    <option value="Not Important">Not Important</option>
+                    <option value="Horizontal">Horizontal</option>
+                    <option value="Vertical">Vertical</option>
+                  </select>
+                </div>
+              </form>
+            </Col>
+          </Row>
+        </div>
 
         <Row className="sheet-info-row">
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <h3>1830x1220</h3>
-            <p>Greatest Yield: {eighteen_hundred_yield} per sheet</p>
-            <p>Number of Sheets: {eighteen_hundred_sheets}</p>
-            <p>Waste: <span style={{backgroundColor: background_color}}>{eighteen_hundred_waste}</span></p>
-            <br/>
+            <div class={sheet_info_class}>
+              <h3>1830x1220</h3>
+              <p>Greatest Yield: {eighteen_hundred_yield} per sheet</p>
+              <p>Number of Sheets: {eighteen_hundred_sheets}</p>
+              <p>Waste: {eighteen_hundred_waste}</p>
+              
+            </div>
           </Col>
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <h3>920x2420</h3>
-            <p>Greatest Yield: {nine_hundred_yield} per sheet</p>
-            <p>Number of Sheets: {nine_hundred_sheets}</p>
-            <p>Waste: {nine_hundred_waste}</p>
-            <br/>
+            <div class="sheet-info-container">
+              <h3>920x2420</h3>
+              <p>Greatest Yield: {nine_hundred_yield} per sheet</p>
+              <p>Number of Sheets: {nine_hundred_sheets}</p>
+              <p>Waste: {nine_hundred_waste}</p>
+            </div>
           </Col>
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <h3>1220x2420</h3>
-            <p>Greatest Yield: {twentyfour_hundred_yield} per sheet</p>
-            <p>Number of Sheets: {twentyfour_hundred_sheets}</p>
-            <p>Waste: {twentyfour_hundred_waste}</p>
-            <br/>
+            <div class="sheet-info-container">
+              <h3>1220x2420</h3>
+              <p>Greatest Yield: {twentyfour_hundred_yield} per sheet</p>
+              <p>Number of Sheets: {twentyfour_hundred_sheets}</p>
+              <p>Waste: {twentyfour_hundred_waste}</p>
+            </div>
           </Col>
         </Row>
       </div>
