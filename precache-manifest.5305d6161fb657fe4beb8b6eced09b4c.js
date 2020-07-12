@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e77e87189eaa90e26ca57c092c06d28b",
+    "revision": "208b84dad8b3e096ebde69c21a0e1f07",
     "url": "/easysheetcalculator/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easysheetcalculator/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "694acf9a9154f1a7a437",
-    "url": "/easysheetcalculator/static/css/main.0774b07d.chunk.css"
+    "revision": "025f62744e087bc4c004",
+    "url": "/easysheetcalculator/static/css/main.ffc183a1.chunk.css"
   },
   {
     "revision": "62851a0a7c1da485ac51",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easysheetcalculator/static/js/2.92a571c2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "694acf9a9154f1a7a437",
-    "url": "/easysheetcalculator/static/js/main.655783c0.chunk.js"
+    "revision": "025f62744e087bc4c004",
+    "url": "/easysheetcalculator/static/js/main.ef16d4ef.chunk.js"
   },
   {
     "revision": "471aca423819adcb2557",
