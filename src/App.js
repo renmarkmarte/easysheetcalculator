@@ -16,6 +16,7 @@ class Calculator extends React.Component {
     this.calculateNumofSheets = this.calculateNumofSheets
     this.calculateYield = this.calculateYield.bind(this);
     this.calculateWaste = this.calculateWaste.bind(this);
+    this.getSheetClass = this.getSheetClass.bind(this);
   }
 
   handleChange(name, value) {
@@ -47,7 +48,7 @@ class Calculator extends React.Component {
       num_of_sheets = Math.ceil(quantity/total_yield);
     }
 
-    return num_of_sheets + " sheet(s)";
+    return num_of_sheets;
 
   }
 
@@ -55,10 +56,6 @@ class Calculator extends React.Component {
     var width = this.state.width;
     var height = this.state.height;
     var flute_direction = this.state.flute_direction;
-
-    console.log(width);
-    console.log(height);
-    console.log("fl " + flute_direction);
 
     switch(flute_direction) {
       case 'Not Important':
@@ -103,20 +100,65 @@ class Calculator extends React.Component {
   }
 
   calculateWaste(sheet_size_width, sheet_size_height) {
-    var width = this.state.width;
-    var height = this.state.height;
+    var artwork_area = this.state.width * this.state.height;
+    var quantity = this.state.quantity;
 
     var sheet_area = sheet_size_width*sheet_size_height;
 
-    var total_yield = this.calculateYield(sheet_size_width, sheet_size_height);
+    var greatest_yield = this.calculateYield(sheet_size_width, sheet_size_height);
+    var num_of_sheets = this.calculateNumofSheets(sheet_size_height, sheet_size_width);
     
-    if(total_yield > 0) {
-      var order_area = width*height*total_yield;
-      var waste = Math.round(((sheet_area - order_area)/sheet_area)*100);
-      return waste + "%";
+    if(quantity > 0 && greatest_yield > 0) {
+      var area_used = Math.round((artwork_area*greatest_yield/sheet_area)*100);
+      var total_waste = 100-area_used;
+    
+//    if(quantity > 0 && greatest_yield > 0) {
+//      var full_sheet_area = artwork_area*greatest_yield;
+//      if(num_of_sheets > 1 && quantity%greatest_yield != 0) {
+//        var remainder_area = artwork_area*(quantity%greatest_yield);
+//        var modulo = quantity%greatest_yield;
+//        var total_area_used = Math.round(((full_sheet_area + remainder_area)/(sheet_area*2))*200);
+//        console.log("Fullsheetarea"+full_sheet_area);
+//        console.log("Remainder"+remainder_area);
+//        console.log("Sheet"+sheet_area);
+//        console.log("quantity"+quantity);
+//        console.log("greatest yield"+greatest_yield);
+//        console.log("modulo"+modulo);
+//        console.log("ARTWORK AREA"+artwork_area);
+//        console.log("total"+total_area_used);
+//        var total_waste = 200-total_area_used;
+//      } else {
+//        if(quantity%greatest_yield === 0) {
+//          var total_waste = 0;
+//        } else {
+//          var total_area_used = Math.round(((artwork_area*quantity)/sheet_area)*100);
+//        var total_waste = 100-total_area_used;
+//        }
+//        
+//      }
+//      
+//      
+//      //remainders exist and more than 1 sheet
+////      if(quantity%total_yield != 0 && num_of_sheets > 1) {
+////        var full_sheet_waste = Math.round(((sheet_area - full_sheet_area)/sheet_area)*100);
+////        var remainder_waste = Math.round(((sheet_area - remainder_area)/sheet_area)*100);
+////        var total_waste = (full_sheet_waste + remainder_waste)/200;
+////      } else {
+////        var total_waste = Math.round(((sheet_area - remainder_area)/sheet_area)*100);
+////      }
+      
+      return total_waste + "%";
     } else {
       return "N/A";
     }
+  }
+  
+  getSheetClass(waste) {
+    var result = "sheet-info-container";
+    if(waste === "N/A") {
+      result = "sheet-info-error";
+    }
+    return result;
   }
 
   // isLandscape() {
@@ -148,14 +190,13 @@ class Calculator extends React.Component {
     var twentyfour_hundred_waste = this.calculateWaste(1200, 2400);
 
     //Number of Sheets Used
-    var eighteen_hundred_sheets = this.calculateNumofSheets(1200, 1800);
-    var nine_hundred_sheets = this.calculateNumofSheets(900, 2400);
-    var twentyfour_hundred_sheets = this.calculateNumofSheets(1200, 2400);
+    var eighteen_hundred_sheets = this.calculateNumofSheets(1200, 1800) + " sheet(s)";
+    var nine_hundred_sheets = this.calculateNumofSheets(900, 2400) + " sheet(s)";
+    var twentyfour_hundred_sheets = this.calculateNumofSheets(1200, 2400) + " sheet(s)";
 
-   var sheet_info_class = "sheet-info-container";
-    if(eighteen_hundred_waste === "N/A") {
-      sheet_info_class = "sheet-info-error";
-    }
+    var eighteen_sheet_info_class = this.getSheetClass(eighteen_hundred_waste);
+    var nine_sheet_info_class = this.getSheetClass(nine_hundred_waste);
+    var twentyfour_sheet_info_class = this.getSheetClass(twentyfour_hundred_waste);
 
 
     return (
@@ -196,7 +237,7 @@ class Calculator extends React.Component {
 
         <Row className="sheet-info-row">
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <div class={sheet_info_class}>
+            <div class={eighteen_sheet_info_class}>
               <h3>1830x1220</h3>
               <p>Greatest Yield: {eighteen_hundred_yield} per sheet</p>
               <p>Number of Sheets: {eighteen_hundred_sheets}</p>
@@ -205,7 +246,7 @@ class Calculator extends React.Component {
             </div>
           </Col>
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <div class="sheet-info-container">
+            <div class={nine_sheet_info_class}>
               <h3>920x2420</h3>
               <p>Greatest Yield: {nine_hundred_yield} per sheet</p>
               <p>Number of Sheets: {nine_hundred_sheets}</p>
@@ -213,7 +254,7 @@ class Calculator extends React.Component {
             </div>
           </Col>
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
-            <div class="sheet-info-container">
+            <div class={twentyfour_sheet_info_class}>
               <h3>1220x2420</h3>
               <p>Greatest Yield: {twentyfour_hundred_yield} per sheet</p>
               <p>Number of Sheets: {twentyfour_hundred_sheets}</p>

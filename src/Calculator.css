@@ -66,14 +66,15 @@
 	text-align: center;
 	margin: 50px 2px;
     padding: 25px;
-    border: 2px solid #eee;
+    background-color: #dbf1c6;
     border-radius: 10px;
 }
 
 .sheet-info-container h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 30px;
+  color: #404040;
 }
 
 .sheet-info-container p {
@@ -86,14 +87,13 @@
   text-align: center;
   margin: 50px 2px;
   padding: 25px;
-  border: 2px solid #eee;
   border-radius: 10px;
 }
 
 .sheet-info-error h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 30px;
   color: #ccc;
 }
 
