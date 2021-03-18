@@ -13,10 +13,11 @@ class Calculator extends React.Component {
       flute_direction: 'Not Important',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.calculateNumofSheets = this.calculateNumofSheets
+    this.calculateNumofSheets = this.calculateNumofSheets.bind(this);
     this.calculateYield = this.calculateYield.bind(this);
     this.calculateWaste = this.calculateWaste.bind(this);
     this.getSheetClass = this.getSheetClass.bind(this);
+    this.getGOTTEM = this.getGOTTEM.bind(this);
   }
 
   handleChange(name, value) {
@@ -111,41 +112,6 @@ class Calculator extends React.Component {
     if(quantity > 0 && greatest_yield > 0) {
       var area_used = Math.round((artwork_area*greatest_yield/sheet_area)*100);
       var total_waste = 100-area_used;
-    
-//    if(quantity > 0 && greatest_yield > 0) {
-//      var full_sheet_area = artwork_area*greatest_yield;
-//      if(num_of_sheets > 1 && quantity%greatest_yield != 0) {
-//        var remainder_area = artwork_area*(quantity%greatest_yield);
-//        var modulo = quantity%greatest_yield;
-//        var total_area_used = Math.round(((full_sheet_area + remainder_area)/(sheet_area*2))*200);
-//        console.log("Fullsheetarea"+full_sheet_area);
-//        console.log("Remainder"+remainder_area);
-//        console.log("Sheet"+sheet_area);
-//        console.log("quantity"+quantity);
-//        console.log("greatest yield"+greatest_yield);
-//        console.log("modulo"+modulo);
-//        console.log("ARTWORK AREA"+artwork_area);
-//        console.log("total"+total_area_used);
-//        var total_waste = 200-total_area_used;
-//      } else {
-//        if(quantity%greatest_yield === 0) {
-//          var total_waste = 0;
-//        } else {
-//          var total_area_used = Math.round(((artwork_area*quantity)/sheet_area)*100);
-//        var total_waste = 100-total_area_used;
-//        }
-//        
-//      }
-//      
-//      
-//      //remainders exist and more than 1 sheet
-////      if(quantity%total_yield != 0 && num_of_sheets > 1) {
-////        var full_sheet_waste = Math.round(((sheet_area - full_sheet_area)/sheet_area)*100);
-////        var remainder_waste = Math.round(((sheet_area - remainder_area)/sheet_area)*100);
-////        var total_waste = (full_sheet_waste + remainder_waste)/200;
-////      } else {
-////        var total_waste = Math.round(((sheet_area - remainder_area)/sheet_area)*100);
-////      }
       
       return total_waste + "%";
     } else {
@@ -160,16 +126,14 @@ class Calculator extends React.Component {
     }
     return result;
   }
-
-  // isLandscape() {
-  //   var width = this.state.width;
-  //   var height = this.state.height;
-  //   if (width > height) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  
+  getGOTTEM(waste) {
+    var result = "gottem-show";
+    if(waste === "N/A") {
+      result = "gottem-hide";
+    }
+    return result;
+  }
 
 
 
@@ -197,6 +161,8 @@ class Calculator extends React.Component {
     var eighteen_sheet_info_class = this.getSheetClass(eighteen_hundred_waste);
     var nine_sheet_info_class = this.getSheetClass(nine_hundred_waste);
     var twentyfour_sheet_info_class = this.getSheetClass(twentyfour_hundred_waste);
+    
+    var GOTTEM = this.getGOTTEM(eighteen_hundred_waste);
 
 
     return (
@@ -235,6 +201,13 @@ class Calculator extends React.Component {
           </Row>
         </div>
 
+        <Row className={GOTTEM}>
+          <Col className="gottem-img" xs={12} sm={12} md={12} lg={12}>
+            <h1>GOT 'EM</h1>
+            <img src="https://www.dictionary.com/e/wp-content/uploads/2018/03/circle_game-1-300x300.jpg"/>
+          </Col>
+        </Row>
+
         <Row className="sheet-info-row">
           <Col className="sheet-col" xs={12} sm={12} md={4} lg={4}>
             <div class={eighteen_sheet_info_class}>
@@ -265,6 +238,54 @@ class Calculator extends React.Component {
       </div>
 
       )
+  }
+}
+
+class CalculatorACP extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: 0,
+      height: 0,
+    };
+  }
+  
+  handleChange(name, value) {
+    switch (name) {
+      case 'width':
+        this.setState({width: value});
+        break;
+      case 'height':
+        this.setState({height: value});
+        break;
+      default:
+        break;
+    }
+  }
+  
+  render () {
+    var width = this.state.width;
+    var height = this.state.height;
+    return (
+      <div>
+      {width}
+      {height}
+      <Row className="artwork-form-row text-center">
+            <Col xs={12} className="artwork-form-col">
+              <form class="form-inline justify-content-center align-items-center" onSubmit={this.handleSubmit}> 
+                <div class="form-group">
+                  <label>Width: </label> 
+                  <input type="number" name="width" value={this.state.width} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
+                </div>
+                <div class="form-group">
+                  <label>Height: </label>
+                  <input type="number" name="height" value={this.state.height} onChange={e => this.handleChange(e.target.name, e.target.value)}/>
+                </div>
+              </form>
+            </Col>
+          </Row>
+      </div>
+    )
   }
 }
 
